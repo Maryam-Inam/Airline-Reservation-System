@@ -1,0 +1,13 @@
+CREATE DATABASE  IF NOT EXISTS `ars_data` ;
+USE `ars_data`;
+DROP TABLE IF EXISTS `ticket`;
+CREATE TABLE `ticket` (
+  `ticketno` int unsigned NOT NULL,
+  `seatno` varchar(15) DEFAULT NULL,
+  `issueTime` time DEFAULT NULL,
+  `resPassID` int DEFAULT NULL,
+  PRIMARY KEY (`ticketno`),
+  KEY `FK_resPassID1` (`resPassID`),
+  CONSTRAINT `FK_resPassID1` FOREIGN KEY (`resPassID`) REFERENCES `reserved_passengers` (`resPassID`)
+) ;
+INSERT INTO `ticket` VALUES (114847,'E130','22:13:18',37),(187051,'E139','01:42:17',44),(311146,'E11','01:24:23',40),(540829,'E152','21:38:39',34),(578025,'E164','21:47:06',36),(604006,'E120','01:47:28',45),(644975,'E159','22:51:42',38),(701802,'E18','21:40:33',35),(718617,'E198','01:21:13',39),(758953,'E185','01:40:33',43),(792014,'E146','01:31:11',41),(835685,'E151','18:46:32',32),(897401,'E187','01:12:09',47),(950469,'E186','18:57:59',48),(956098,'E16','01:56:24',46),(978870,'E125','21:36:01',33),(980219,'E155','16:42:54',31),(52678128,'E37','10:00:00',1);
